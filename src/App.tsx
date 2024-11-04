@@ -76,7 +76,7 @@ function App() {
               {
                 name: 'DOERS HUB',
                 tech: ['REACT', 'INERTIA', 'PHP'],
-                description: 'Deep learning-based image generation tool',
+                description: 'Dashboard that connects Trello, Holded, and Clockify. Its function is to keep everything organized and have everything in one place.',
                 image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRI_KakYLRgpxnvDJMU4AophdNJJLCQewAw2w&s'
               },
               {
