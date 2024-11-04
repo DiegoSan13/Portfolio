@@ -150,7 +150,7 @@ function App() {
               },
               {
                 degree: 'Technological Bachelor',
-                school: 'State University',
+                school: 'Joyfe',
                 period: '2020 - 2022',
               },
             ].map((edu) => (
