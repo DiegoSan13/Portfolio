@@ -18,14 +18,15 @@ function App() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {[
               { name: 'React', level: 90 },
-              { name: 'JavaScript', level: 75 },
+              { name: 'JavaScript', level: 80 },
               { name: 'PHP', level: 90 },
-              { name: 'Three.js', level: 70 },
+              { name: 'Laravel', level: 75 },
+              { name: 'Three.js', level: 75 },
               { name: 'Python', level: 75 },
               { name: 'React Three Fiber', level: 75 },
               { name: 'CSS', level: 85 },
-              { name: 'TailWind', level: 70 },
               { name: 'BootsTrap', level: 75 },
+              
             ].map((lang) => (
               <div key={lang.name} className="bg-gray-800 p-6 rounded-xl">
                 <h3 className="text-xl font-semibold mb-4">{lang.name}</h3>
