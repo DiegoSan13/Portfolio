@@ -118,6 +118,57 @@ function App() {
             ))}
           </div>
         </section>
+{/* Work Experience */}
+<section id="experience" className="space-y-8 scroll-mt-16">
+          <SectionTitle icon={<Briefcase />} title="Work Experience" color="text-green-400" />
+          <div className="space-y-6">
+            {[
+              {
+                role: 'Senior Full Stack Developer',
+                company: 'Doers Digital Factory',
+                period: '2024 - Present',
+                description: 'Create various projects within the company and maintain websites on WordPress.',
+              },
+            ].map((exp) => (
+              <div key={exp.role} className="bg-gray-800 p-6 rounded-xl">
+                <h3 className="text-xl font-semibold">{exp.role}</h3>
+                <p className="text-green-400 mb-2">{exp.company}</p>
+                <p className="text-gray-400 text-sm mb-4">{exp.period}</p>
+                <p className="text-gray-300">{exp.description}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* Education */}
+        <section id="education" className="space-y-8 scroll-mt-16">
+          <SectionTitle icon={<GraduationCap />} title="Education" color="text-purple-400" />
+          <div className="space-y-6">
+            {[
+              {
+                degree: 'Three.js Course',
+                school: 'Bruno Simon',
+                period: '2024',
+              },
+              {
+                degree: 'Web Application Developer',
+                school: 'CEAC FP',
+                period: '2022 - 2024',
+              },
+              {
+                degree: 'Technological Bachelor',
+                school: 'Joyfe',
+                period: '2020 - 2022',
+              },
+            ].map((edu) => (
+              <div key={edu.degree} className="bg-gray-800 p-6 rounded-xl">
+                <h3 className="text-xl font-semibold">{edu.degree}</h3>
+                <p className="text-purple-400 mb-2">{edu.school}</p>
+                <p className="text-gray-400 text-sm">{edu.period}</p>
+              </div>
+            ))}
+          </div>
+        </section>
 
         {/* Contact Form */}
         <section id="contact" className="space-y-8 scroll-mt-16">
