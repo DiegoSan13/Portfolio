@@ -1,5 +1,5 @@
 import React from 'react';
-import { Code2, Languages, FolderGit2, MessageSquare } from 'lucide-react';
+import { Code2, Languages, FolderGit2,Briefcase, MessageSquare } from 'lucide-react';
 import { Navigation } from './components/Navigation';
 import { Hero } from './components/Hero';
 import { SectionTitle } from './components/SectionTitle';
