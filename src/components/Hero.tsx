@@ -1,5 +1,5 @@
 import React from 'react';
-import { ChevronDown } from 'lucide-react';
+import { ChevronDown, Github, Linkedin } from 'lucide-react';
 
 export function Hero() {
   return (
@@ -21,6 +21,24 @@ export function Hero() {
         </div>
         <h1 className="text-6xl font-bold">Diego Sánchez</h1>
         <p className="text-2xl text-gray-300">Full Stack Developer</p>
+        <div className="flex justify-center gap-4 pt-4">
+          <a 
+            href="https://www.linkedin.com/in/diegosanchezheredia/" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="p-2 bg-blue-500/10 rounded-full hover:bg-blue-500/20 transition-colors"
+          >
+            <Linkedin className="w-6 h-6 text-blue-400" />
+          </a>
+          <a 
+            href="https://github.com/DiegoSan13?tab=repositories" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="p-2 bg-gray-500/10 rounded-full hover:bg-gray-500/20 transition-colors"
+          >
+            <Github className="w-6 h-6 text-gray-400" />
+          </a>
+        </div>
         <ChevronDown className="animate-bounce mx-auto mt-20 w-8 h-8" />
       </div>
     </header>

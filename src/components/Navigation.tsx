@@ -1,5 +1,5 @@
 import React from 'react';
-import { Code2, Briefcase, GraduationCap, Languages, FolderGit2 } from 'lucide-react';
+import { Code2, Briefcase, GraduationCap, Languages, FolderGit2, MessageSquare } from 'lucide-react';
 
 interface NavItem {
   id: string;
@@ -10,10 +10,10 @@ interface NavItem {
 const navItems: NavItem[] = [
   { id: 'languages', icon: <Code2 className="w-5 h-5" />, label: 'Programming' },
   { id: 'spoken-languages', icon: <Languages className="w-5 h-5" />, label: 'Languages' },
-  { id: 'projects', icon: <FolderGit2 className="w-5 h-5" />, label: 'Projects' },
   { id: 'experience', icon: <Briefcase className="w-5 h-5" />, label: 'Experience' },
   { id: 'education', icon: <GraduationCap className="w-5 h-5" />, label: 'Education' },
-  
+  { id: 'projects', icon: <FolderGit2 className="w-5 h-5" />, label: 'Projects' },
+  { id: 'contact', icon: <MessageSquare className="w-5 h-5" />, label: 'Contact' },
 ];
 
 export function Navigation() {

@@ -1,10 +1,14 @@
 import React from 'react';
-import { Code2, Briefcase, GraduationCap, Languages, FolderGit2, ExternalLink } from 'lucide-react';
+import { Code2, Briefcase, GraduationCap, Languages, FolderGit2, Github, ExternalLink, MessageSquare } from 'lucide-react';
 import { Navigation } from './components/Navigation';
 import { Hero } from './components/Hero';
 import { SectionTitle } from './components/SectionTitle';
 
 function App() {
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    // Add your form submission logic here
+  };
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-900 to-gray-800 text-white">
       <Navigation />
@@ -24,8 +28,11 @@ function App() {
               { name: 'Three.js', level: 75 },
               { name: 'Python', level: 75 },
               { name: 'React Three Fiber', level: 75 },
+              { name: 'Git', level: 85 },
+              { name: 'MySQL', level: 90 },
               { name: 'CSS', level: 85 },
               { name: 'BootsTrap', level: 75 },
+              { name: 'Tailwind', level: 75 },          
               
             ].map((lang) => (
               <div key={lang.name} className="bg-gray-800 p-6 rounded-xl">
@@ -161,6 +168,76 @@ function App() {
                 <p className="text-gray-400 text-sm">{edu.period}</p>
               </div>
             ))}
+          </div>
+        </section>
+
+        {/* Contact Form */}
+        <section id="contact" className="space-y-8 scroll-mt-16">
+          <SectionTitle icon={<MessageSquare />} title="Contact Me" color="text-indigo-400" />
+          <div className="max-w-2xl mx-auto">
+            <form onSubmit={handleSubmit} className="space-y-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="space-y-2">
+                  <label htmlFor="name" className="block text-sm font-medium text-gray-300">
+                    Name
+                  </label>
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    required
+                    className="w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg focus:ring-2 focus:ring-indigo-400 focus:border-transparent transition-all duration-200 text-white"
+                    placeholder="John Doe"
+                  />
+                </div>
+                <div className="space-y-2">
+                  <label htmlFor="email" className="block text-sm font-medium text-gray-300">
+                    Email
+                  </label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    required
+                    className="w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg focus:ring-2 focus:ring-indigo-400 focus:border-transparent transition-all duration-200 text-white"
+                    placeholder="john@example.com"
+                  />
+                </div>
+              </div>
+              <div className="space-y-2">
+                <label htmlFor="subject" className="block text-sm font-medium text-gray-300">
+                  Subject
+                </label>
+                <input
+                  type="text"
+                  id="subject"
+                  name="subject"
+                  required
+                  className="w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg focus:ring-2 focus:ring-indigo-400 focus:border-transparent transition-all duration-200 text-white"
+                  placeholder="Project Inquiry"
+                />
+              </div>
+              <div className="space-y-2">
+                <label htmlFor="message" className="block text-sm font-medium text-gray-300">
+                  Message
+                </label>
+                <textarea
+                  id="message"
+                  name="message"
+                  rows={6}
+                  required
+                  className="w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg focus:ring-2 focus:ring-indigo-400 focus:border-transparent transition-all duration-200 text-white resize-none"
+                  placeholder="Your message here..."
+                ></textarea>
+              </div>
+              <button
+                type="submit"
+                className="w-full md:w-auto px-8 py-3 bg-indigo-500 hover:bg-indigo-600 text-white font-medium rounded-lg transition-colors duration-200 flex items-center justify-center gap-2 group"
+              >
+                Send Message
+                <MessageSquare className="w-5 h-5 transform transition-transform group-hover:scale-110" />
+              </button>
+            </form>
           </div>
         </section>
 
