@@ -18,8 +18,8 @@ function App() {
     
     try {
       await emailjs.send(
-        'service_gmail', // Replace with your EmailJS service ID
-        'template_contact', // Replace with your EmailJS template ID
+        'service_vktnnso', // Replace with your EmailJS service ID
+        'template_4b7wbdp', // Replace with your EmailJS template ID
         {
           from_name: formData.get('name'),
           from_email: formData.get('email'),
@@ -27,7 +27,7 @@ function App() {
           message: formData.get('message'),
           to_email: 'diego.sanchezhere@gmail.com',
         },
-        'your_public_key' // Replace with your EmailJS public key
+        'EiTirAkf2lLj20fRt' // Replace with your EmailJS public key
       );
 
       toast.success('Message sent successfully!');
