@@ -1,19 +1,50 @@
 import React from 'react';
-import { Code2, Languages, FolderGit2,Briefcase, MessageSquare } from 'lucide-react';
+import { Code2, Briefcase, GraduationCap, Languages, FolderGit2, Github, ExternalLink, MessageSquare, Loader2 } from 'lucide-react';
 import { Navigation } from './components/Navigation';
 import { Hero } from './components/Hero';
 import { SectionTitle } from './components/SectionTitle';
+import emailjs from '@emailjs/browser';
+import { Toaster, toast } from 'react-hot-toast';
 
 function App() {
-  const handleSubmit = (e) => {
+  const [isSubmitting, setIsSubmitting] = React.useState(false);
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // Lógica para enviar el formulario
+    setIsSubmitting(true);
+
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+    
+    try {
+      await emailjs.send(
+        'service_gmail', // Replace with your EmailJS service ID
+        'template_contact', // Replace with your EmailJS template ID
+        {
+          from_name: formData.get('name'),
+          from_email: formData.get('email'),
+          subject: formData.get('subject'),
+          message: formData.get('message'),
+          to_email: 'diego.sanchezhere@gmail.com',
+        },
+        'your_public_key' // Replace with your EmailJS public key
+      );
+
+      toast.success('Message sent successfully!');
+      form.reset();
+    } catch (error) {
+      toast.error('Failed to send message. Please try again.');
+      console.error('Email error:', error);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-900 to-gray-800 text-white">
       <Navigation />
       <Hero />
+      <Toaster position="top-right" />
 
       {/* Main Content */}
       <main className="max-w-6xl mx-auto px-4 py-20 space-y-32">
@@ -188,6 +219,7 @@ function App() {
                     required
                     className="w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg focus:ring-2 focus:ring-indigo-400 focus:border-transparent transition-all duration-200 text-white"
                     placeholder="John Doe"
+                    disabled={isSubmitting}
                   />
                 </div>
                 <div className="space-y-2">
@@ -201,6 +233,7 @@ function App() {
                     required
                     className="w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg focus:ring-2 focus:ring-indigo-400 focus:border-transparent transition-all duration-200 text-white"
                     placeholder="john@example.com"
+                    disabled={isSubmitting}
                   />
                 </div>
               </div>
@@ -215,6 +248,7 @@ function App() {
                   required
                   className="w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg focus:ring-2 focus:ring-indigo-400 focus:border-transparent transition-all duration-200 text-white"
                   placeholder="Project Inquiry"
+                  disabled={isSubmitting}
                 />
               </div>
               <div className="space-y-2">
@@ -228,14 +262,25 @@ function App() {
                   required
                   className="w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg focus:ring-2 focus:ring-indigo-400 focus:border-transparent transition-all duration-200 text-white resize-none"
                   placeholder="Your message here..."
+                  disabled={isSubmitting}
                 ></textarea>
               </div>
               <button
                 type="submit"
-                className="w-full md:w-auto px-8 py-3 bg-indigo-500 hover:bg-indigo-600 text-white font-medium rounded-lg transition-colors duration-200 flex items-center justify-center gap-2 group"
+                disabled={isSubmitting}
+                className="w-full md:w-auto px-8 py-3 bg-indigo-500 hover:bg-indigo-600 text-white font-medium rounded-lg transition-colors duration-200 flex items-center justify-center gap-2 group disabled:opacity-50 disabled:cursor-not-allowed"
               >
-                Send Message
-                <MessageSquare className="w-5 h-5 transform transition-transform group-hover:scale-110" />
+                {isSubmitting ? (
+                  <>
+                    <Loader2 className="w-5 h-5 animate-spin" />
+                    Sending...
+                  </>
+                ) : (
+                  <>
+                    Send Message
+                    <MessageSquare className="w-5 h-5 transform transition-transform group-hover:scale-110" />
+                  </>
+                )}
               </button>
             </form>
           </div>
