@@ -1,14 +1,15 @@
 import React from 'react';
-import { Code2, Briefcase, GraduationCap, Languages, FolderGit2, Github, ExternalLink, MessageSquare } from 'lucide-react';
+import { Code2, Languages, FolderGit2, MessageSquare } from 'lucide-react';
 import { Navigation } from './components/Navigation';
 import { Hero } from './components/Hero';
 import { SectionTitle } from './components/SectionTitle';
 
 function App() {
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    // Add your form submission logic here
+    // Lógica para enviar el formulario
   };
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-900 to-gray-800 text-white">
       <Navigation />
@@ -32,8 +33,7 @@ function App() {
               { name: 'MySQL', level: 90 },
               { name: 'CSS', level: 85 },
               { name: 'BootsTrap', level: 75 },
-              { name: 'Tailwind', level: 75 },          
-              
+              { name: 'Tailwind', level: 75 },
             ].map((lang) => (
               <div key={lang.name} className="bg-gray-800 p-6 rounded-xl">
                 <h3 className="text-xl font-semibold mb-4">{lang.name}</h3>
@@ -84,13 +84,13 @@ function App() {
               {
                 name: 'DOERS HUB',
                 tech: ['REACT', 'INERTIA', 'PHP'],
-                description: 'Dashboard that connects Trello, Holded, and Clockify. Its function is to keep everything organized and have everything in one place.',
+                description: 'Dashboard that connects Trello, Holded, and Clockify.',
                 image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRI_KakYLRgpxnvDJMU4AophdNJJLCQewAw2w&s'
               },
               {
                 name: 'Panaderias Paco',
                 tech: ['WordPress', 'PHP', 'TailWind'],
-                description: 'A website for a physical store that uses plugins, user registration, shopping carts, stock management...',
+                description: 'A website for a physical store with user registration, shopping carts, stock management.',
                 image: 'https://hips.hearstapps.com/hmg-prod/images/fans-coffee-bakery-elle-1634459850.jpg'
               },
             ].map((project) => (
@@ -114,58 +114,6 @@ function App() {
                   </div>
                   <p className="text-gray-300 mb-4">{project.description}</p>
                 </div>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        {/* Work Experience */}
-        <section id="experience" className="space-y-8 scroll-mt-16">
-          <SectionTitle icon={<Briefcase />} title="Work Experience" color="text-green-400" />
-          <div className="space-y-6">
-            {[
-              {
-                role: 'Senior Full Stack Developer',
-                company: 'Doers Digital Factory',
-                period: '2024 - Present',
-                description: 'Create various projects within the company and maintain websites on WordPress.',
-              },
-            ].map((exp) => (
-              <div key={exp.role} className="bg-gray-800 p-6 rounded-xl">
-                <h3 className="text-xl font-semibold">{exp.role}</h3>
-                <p className="text-green-400 mb-2">{exp.company}</p>
-                <p className="text-gray-400 text-sm mb-4">{exp.period}</p>
-                <p className="text-gray-300">{exp.description}</p>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        {/* Education */}
-        <section id="education" className="space-y-8 scroll-mt-16">
-          <SectionTitle icon={<GraduationCap />} title="Education" color="text-purple-400" />
-          <div className="space-y-6">
-            {[
-              {
-                degree: 'Three.js Course',
-                school: 'Bruno Simon',
-                period: '2024',
-              },
-              {
-                degree: 'Web Application Developer',
-                school: 'CEAC FP',
-                period: '2022 - 2024',
-              },
-              {
-                degree: 'Technological Bachelor',
-                school: 'Joyfe',
-                period: '2020 - 2022',
-              },
-            ].map((edu) => (
-              <div key={edu.degree} className="bg-gray-800 p-6 rounded-xl">
-                <h3 className="text-xl font-semibold">{edu.degree}</h3>
-                <p className="text-purple-400 mb-2">{edu.school}</p>
-                <p className="text-gray-400 text-sm">{edu.period}</p>
               </div>
             ))}
           </div>
@@ -241,7 +189,6 @@ function App() {
           </div>
         </section>
 
-        
       </main>
 
       {/* Footer */}
