@@ -28,6 +28,7 @@ export function Navigation() {
     <nav className="fixed top-0 left-0 right-0 bg-gray-900/80 backdrop-blur-sm z-50 transition-all duration-300">
       <div className="max-w-6xl mx-auto px-4">
         <div className="flex items-center justify-center h-16 gap-4 md:gap-8">
+          <a href='https://diegosanchez3dportfolio.netlify.app/' className='p-2'><button>3D Portfolio</button></a>
           {navItems.map((item) => (
             <button
               key={item.id}
